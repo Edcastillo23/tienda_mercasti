@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercasti</title>
-</head>
-<body>
-    <h1>Bienvenido a Mercasti</h1>
-    <p>Tu tienda en línea de confianza.</p>
+{% extends "base.html" %}
+{% load static %}
 
-    <footer>
-        <p>&copy; 2024 Mercasti. Todos los derechos reservados.</p>
-        <a href="{% url 'contacto' %}">Contacto</a>
-    </footer>
-</body>
-</html>
+{% block title %} Inicio - Mercasti {% endblock %}
+
+{% block content %} 
+
+<div class = "container mt-5">
+    <h1 class=" text-light">Bienvenido a Mercasti</h1>
+    <p class="text-light">Tu tienda en línea de confianza para todo lo que necesitas.</p>
+
+    <img src="{% static 'img/logo.png'}" alt="logo de mercasti" class="img-fluid my-4">
+
+    <div class="alert alert-primary">Nueva coleccion</div>
+    <div class="alert alert-warning">Recuerda revisar restricciones de edad para algunos articulos</div>
+    <div class="alert alert-danger">Algunos productos pueden tener stock limitado</div>
+    <a href="{% url 'contacto' %}">Contáctenos</a>
+</div>
+
+
+{% endblock %}

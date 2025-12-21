@@ -1,29 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contáctanos</title>
-</head>
-<body>
-    <h1>Contáctanos</h1>
-    <p>¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!</p>
-    <form action="#" method="post">
-        <label for="name">Nombre:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
-        
-        <label for="email">Correo Electrónico:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-        
-        <label for="message">Mensaje:</label><br>
-        <textarea id="message" name="message" rows="4" required></textarea><br><br>
-        
-        <input type="submit" value="Enviar">
-    </form>
+{% extends 'base.html' %}
 
-        <footer>
-            <p>&copy; 2024 Mercasti. Todos los derechos reservados.</p>
-            <a href="{% url 'index' %}">Inicio</a>
-        </footer>
-</body>
-</html>
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            
+            <div class="mb-4">
+                <h2 class="fw-bold">Contáctenos</h2>
+                <p class="text-muted small">Estamos aquí para ayudarte. Envíanos tus dudas y te responderemos lo antes posible.</p>
+            </div>
+
+            <form action="{% url 'contacto' %}" method="POST" class="shadow-sm p-4 border rounded bg-light">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre Completo</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ej: Juan Pérez" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Dirección de Correo Electrónico</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="nombre@ejemplo.com" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input type="tel" name="telefono" id="telefono" class="form-control" placeholder="+56 9 1234 5678">
+                </div>
+
+                <div class="mb-3">
+                    <label for="mensaje" class="form-label">Mensaje de contacto</label>
+                    <textarea name="mensaje" id="mensaje" rows="4" class="form-control" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<footer>
+    
+    <a href="{% url 'index' %}">Inicio</a>
+</footer>
+{% endblock %}
