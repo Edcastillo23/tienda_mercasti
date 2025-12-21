@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'catalogo',#nueva app llamada catalogo debe ser siempre registrada aqui
 ]
 
 MIDDLEWARE = [
