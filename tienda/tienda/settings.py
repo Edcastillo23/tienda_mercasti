@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalogo',#nueva app llamada catalogo debe ser siempre registrada aqui
+    'home',  #nueva app llamada home 
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctanos</title>
+</head>
+<body>
+    <h1>Contáctanos</h1>
+    <p>¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!</p>
+    <form action="#" method="post">
+        <label for="name">Nombre:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">Correo Electrónico:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="message">Mensaje:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+        
+        <input type="submit" value="Enviar">
+    </form>
+
+        <footer>
+            <p>&copy; 2024 Mercasti. Todos los derechos reservados.</p>
+            <a href="{% url 'index' %}">Inicio</a>
+        </footer>
+</body>
+</html>
