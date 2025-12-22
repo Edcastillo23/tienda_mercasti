@@ -6,15 +6,27 @@
 {% block content %} 
 
 <div class = "container mt-5">
-    <h1 class=" text-light">Bienvenido a Mercasti</h1>
-    <p class="text-light">Tu tienda en línea de confianza para todo lo que necesitas.</p>
+    <div class="container-fluid py-5 bg-dark"> <div class="row justify-content-center">
+        <div class="col-11 col-md-8 text-center">
+            
+            <h1 class="display-4 text-light fw-bold mb-3">
+                Bienvenido a Mercasti
+            </h1>
+            
+            <p class="lead text-light opacity-75">
+                Tu tienda en línea de confianza para todo lo que necesitas.
+            </p>
+            
+        </div>
+    </div>
+</div>
 
-    <img src="{% static 'img/logo.png'}" alt="logo de mercasti" class="img-fluid my-4">
+    <img src="{% static 'img/logo.png'%}" alt="logo de mercasti" class="img-fluid my-4">
 
     <div class="alert alert-primary">Nueva coleccion</div>
     <div class="alert alert-warning">Recuerda revisar restricciones de edad para algunos articulos</div>
     <div class="alert alert-danger">Algunos productos pueden tener stock limitado</div>
-    <a href="{% url 'contacto' %}">Contáctenos</a>
+    
 </div>
 
 
