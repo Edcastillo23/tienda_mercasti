@@ -18,7 +18,7 @@
         </button>
     </header>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
     <div class="container">
 
         <!--Logo de la empresa-->
@@ -63,21 +63,66 @@
 
     {% endblock %}
 
-    <footer class="bg-dark text-body py-4 border-top border-secondary">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-12">
-                    <h5 class="fw-bold mb-3">Mercasti</h5>
-                    <p class="mb-0 small opacity-75">&copy; 2024 Mercasti. Todos los derechos reservados.</p>
-                    <div class="mt-3">
-                        <a href="{% url 'contacto' %}" class="text-light text-decoration-none mx-2 small hover-opacity">Contacto</a>
-                        <a href="#" class="text-light text-decoration-none mx-2 small hover-opacity">Privacidad</a>
-                        <a href="#" class="text-light text-decoration-none mx-2 small hover-opacity">Términos</a>
-                    </div>
+<footer class="bg-dark text-light pt-5 pb-3 mt-5 border-top border-secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4 mb-4">
+                <h5 class="fw-bold text-uppercase mb-3">
+                    <img src="{% static 'img/logo.png' %}" alt="Logo" width="30" class="me-2">
+                    Mercasti
+                </h5>
+                <p class="small opacity-75">
+                    Tu tienda líder en artículos exclusivos. Calidad y confianza en cada entrega.
+                </p>
+                <div class="d-flex gap-3 fs-4 mt-3">
+                    <a href="#" class="text-light hover-primary"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-light hover-primary"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-light hover-primary"><i class="bi bi-whatsapp"></i></a>
                 </div>
             </div>
+
+            <div class="col-6 col-md-2 mb-4">
+                <h6 class="fw-bold mb-3">Navegación</h6>
+                <ul class="list-unstyled small">
+                    <li class="mb-2"><a href="/" class="text-light text-decoration-none opacity-75 hover-opacity">Inicio</a></li>
+                    <li class="mb-2"><a href="#" class="text-light text-decoration-none opacity-75 hover-opacity">Tienda</a></li>
+                    <li class="mb-2"><a href="#" class="text-light text-decoration-none opacity-75 hover-opacity">Promociones</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4">
+                <h6 class="fw-bold mb-3">Soporte</h6>
+                <ul class="list-unstyled small">
+                    <li class="mb-2"><a href="{% url 'contacto' %}" class="text-light text-decoration-none opacity-75 hover-opacity">Centro de ayuda</a></li>
+                    <li class="mb-2"><a href="#" class="text-light text-decoration-none opacity-75 hover-opacity">Políticas de envío</a></li>
+                    <li class="mb-2"><a href="#" class="text-light text-decoration-none opacity-75 hover-opacity">Términos y condiciones</a></li>
+                </ul>
+            </div>
+
+            <div class="col-12 col-md-3 mb-4">
+                <h6 class="fw-bold mb-3">Suscríbete</h6>
+                <p class="small opacity-75">Recibe ofertas exclusivas en tu correo.</p>
+                <form class="input-group input-group-sm">
+                    <input type="email" class="form-control" placeholder="Email" aria-label="Email">
+                    <button class="btn btn-primary" type="button">Unirme</button>
+                </form>
+            </div>
         </div>
-    </footer>
+
+        <hr class="my-4 border-secondary opacity-25">
+
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start small opacity-50">
+                &copy; 2024 Mercasti. Todos los derechos reservados.
+            </div>
+            <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                <img src="https://img.icons8.com/color/48/000000/visa.png" width="30" alt="Visa">
+                <img src="https://img.icons8.com/color/48/000000/mastercard.png" width="30" alt="Mastercard">
+                <img src="https://img.icons8.com/color/48/000000/paypal.png" width="30" alt="Paypal">
+            </div>
+        </div>
+    </div>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{% static 'js/script.js' %}"></script>
