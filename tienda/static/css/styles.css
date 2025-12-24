@@ -49,6 +49,29 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
 }
 
+/* --- Efecto de crecimiento en Cards --- */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.card-hover:hover {
+    /* Crece un 5% (1.05) */
+    transform: scale(1.05);
+    
+    /* Aumentamos la sombra para dar efecto de elevación */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+    
+    /* Opcional: Resalta un poco el borde */
+    border: 1px solid var(--bs-primary) !important;
+}
+/* Efecto de crecimiento en la imagen dentro de la card */
+.card-hover:hover .card-img-top {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
 /* --- Estilos del Footer --- */
 footer {
     /* Mantiene el footer separado del contenido */
