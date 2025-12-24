@@ -24,6 +24,7 @@ body {
     padding-top: 0; /* Cambia a 70px si usas la clase 'fixed-top' en el nav */
 }
 
+
 /* --- Botón de Cambio de Tema --- */
 #theme-toggle-btn {
     position: fixed;
