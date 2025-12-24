@@ -11,7 +11,7 @@
         {% for p in productos %}
             <div class="col">
                 <div class="card h-100 shadow p-3 mb-5 bg-white rounded border-0 card-hover">
-                    <img src="{% static p.imagen %}" class="card-img-top" alt="imagengenerica">
+                    <img src="{% static 'img/productos/' %}{{ p.imagen }}" class="card-img-top" alt="imagengenerica">
                     
                     <div class="card-body">
                         <h5 class="card-title">{{ p.nombre }}</h5>
