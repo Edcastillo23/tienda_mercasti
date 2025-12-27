@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),  #incluimos las urls de la app home 
     path('catalogo/', include('catalogo.urls')),  #incluimos las urls de la app catalogo
-    
+    path('buscador/', include('buscador.urls')),  #incluimos las urls de la app buscador
 ]
