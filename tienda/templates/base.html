@@ -18,6 +18,12 @@
         </button>
     </header>
 
+<a href="https://api.whatsapp.com/send/?phone=573138570114&text=Hola,%20quisiera%20consultar%20por%20un%20repuesto" 
+class="btn-whatsapp" 
+target="_blank">
+    <i class="bi bi-whatsapp"></i>
+</a>
+
 <nav class="navbar navbar-expand-lg navbar-brand bg-dark shadow-sm fixed-top">
     <div class="container">
 
@@ -68,16 +74,16 @@
         <div class="row">
             <div class="col-12 col-md-4 mb-4">
                 <h5 class="fw-bold text-uppercase mb-3">
-                    <img src="{% static 'img/logo.png' %}" alt="Logo" width="30" class="me-2">
-                    Mercasti
+                    <img src="{% static 'img/logo.png' %}" alt="" width="30" class="me-2">
+                    TALLER EL CASTILLO
                 </h5>
                 <p class="small opacity-75">
                     Tu tienda líder en artículos exclusivos. Calidad y confianza en cada entrega.
                 </p>
                 <div class="d-flex gap-3 fs-4 mt-3">
-                    <a href="#" class="text-light hover-primary"><i class="bi bi-facebook"></i></a>
+                    <a href="" class="text-light hover-primary"><i class="bi bi-facebook"></i></a>
                     <a href="#" class="text-light hover-primary"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="text-light hover-primary"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://api.whatsapp.com/send/?phone=573138570114&text=Hola,%20quisiera%20consultar%20por%20un%20repuesto" class="text-light hover-primary" target="_blank"><i class="bi bi-whatsapp"></i></a>
                 </div>
             </div>
 
@@ -85,7 +91,7 @@
                 <h6 class="fw-bold mb-3">Navegación</h6>
                 <ul class="list-unstyled small">
                     <li class="mb-2"><a href="/" class="text-light text-decoration-none opacity-75 hover-opacity">Inicio</a></li>
-                    <li class="mb-2"><a href="#" class="text-light text-decoration-none opacity-75 hover-opacity">Tienda</a></li>
+                    <li class="mb-2"><a href="{% url 'lista_productos' %}" class="text-light text-decoration-none opacity-75 hover-opacity">Tienda</a></li>
                     <li class="mb-2"><a href="#" class="text-light text-decoration-none opacity-75 hover-opacity">Promociones</a></li>
                 </ul>
             </div>
@@ -113,7 +119,7 @@
 
         <div class="row align-items-center">
             <div class="col-md-6 text-center text-md-start small opacity-50">
-                &copy; 2024 Mercasti. Todos los derechos reservados.
+                &copy; 2025 El Castillo. Todos los derechos reservados.
             </div>
             <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
                 <img src="https://img.icons8.com/color/48/000000/visa.png" width="30" alt="Visa">
