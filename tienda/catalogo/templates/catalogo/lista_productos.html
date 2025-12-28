@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %} Lista de Productos - Mercasti {% endblock %}
+{% block title %} Repuestos{% endblock %}
 
 {% block content %} 
 
@@ -10,29 +10,38 @@
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
         {% for p in productos %}
             <div class="col">
-                <div class="card h-100 shadow p-3 mb-5 bg-white rounded border-0 card-hover">
-                    <img src="{% static 'img/productos/' %}{{ p.imagen }}" class="card-img-top" alt="imagengenerica">
-                    
-                    <div class="card-body">
-                        <h5 class="card-title">{{ p.nombre }}</h5>
-                        <p class="card-text">{{ p.descripcion }}</p>
+                <a href="{% url 'detalle_producto' p.id %}" class="text-decoration-none text-dark">
 
+                    <div class="card h-100 shadow p-3 mb-5 bg-white rounded border-0 card-hover">
+                        <img src="{% static 'img/productos/' %}{{ p.imagen }}" class="card-img-top" alt="imagengenerica">
                         
-                        {% if p.stock > 0 %}
-                            <span class="badge bg-success mb-2">Disponible: {{ p.stock }}</span>
-                        {% else %}
-                            <span class="badge bg-danger mb-2">Agotado</span>
-                        {% endif %}
-                    
-                        <h4 class="text-primary fw-bold">${{ p.precio }}Precio</h4>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ p.nombre }}</h5>
+                            <p class="card-text">{{ p.descripcion }}</p>
+    
+                            
+                            {% if p.stock > 0 %}
+                                <span class="badge bg-success mb-2">Disponible: {{ p.stock }}</span>
+                            {% else %}
+                                <span class="badge bg-danger mb-2">Agotado</span>
+                            {% endif %}
+                        
+                            <h4 class="text-primary fw-bold">${{ p.precio }}</h4>
+                        </div>
+    
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <button class="btn btn-primary w-100 {% if p.stock == 0 %}disabled{% endif %}">
+                                <i class="bi bi-cart-plus"></i> Añadir al carrito
+                            </button>
+                            
+                            <button class="btn btn-outline-secondary w-100 mt-2">
+                                <i class="bi bi-eye">
+                                    Ver Detalles
+                                </i>
+                            </button>
+                        </div>
                     </div>
-
-                    <div class="card-footer bg-transparent border-0 pb-3">
-                        <button class="btn btn-primary w-100 {% if p.stock == 0 %}disabled{% endif %}">
-                            <i class="bi bi-cart-plus"></i> Añadir al carrito
-                        </button>
-                    </div>
-                </div>
+                </a>
             </div>
         {% endfor %}        
     </div>

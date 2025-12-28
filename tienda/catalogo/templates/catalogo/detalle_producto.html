@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} {{ producto.nombre }} {% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row g-5">
+        <div class="col-12 col-md-5">
+            <div class="card shadow-sm">
+                {% if producto.imagen %}
+                    <img src="{% static 'img/productos/' %}{{ producto.imagen }}" class="img-fluid rounded shadow" alt="{{ producto.nombre }}">
+                {% else %}
+                    <img src="{% static 'img/no-image.png' %}" class="img-fluid rounded" alt="Sin imagen disponible">
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-12 col-md-7">
+            <h1 class="display-5 fw-bold mb-3">{{ producto.nombre }}</h1>
+            
+            <div class="mb-4">
+                <h2 class="text-success fw-bold">${{ producto.precio }}</h2>
+                {% if producto.stock > 0 %}
+                    <span class="badge bg-success">En Stock: {{ producto.stock }} unidades</span>
+                {% else %}
+                    <span class="badge bg-danger">Agotado temporalmente</span>
+                {% endif %}
+            </div>
+
+            <div class="card bg-light border-0 mb-4">
+                <div class="card-body">
+                    <h5 class="fw-bold">Especificaciones técnicas</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><strong>Marca:</strong> {{ producto.marca|default:"Genérico" }}</li>
+                        <li><strong>SKU:</strong> {{ producto.sku|default:"N/A" }}</li>
+                        <li><strong>Categoría:</strong> {{ producto.categoria.nombre|default:"Repuestos" }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            {% if producto.descripcion %}
+                <h5 class="fw-bold">Descripción</h5>
+                <p class="text-muted">{{ producto.descripcion|linebreaks }}</p>
+            {% endif %}
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
+                <button class="btn btn-primary btn-lg px-5 {% if producto.stock == 0 %}disabled{% endif %}">
+                    <i class="bi bi-cart-plus"></i> Añadir al carrito
+                </button>
+                <a href="{% url 'lista_productos' %}" class="btn btn-outline-secondary btn-lg px-4">
+                    <i class="bi bi-arrow-left"></i> Volver
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="my-5">
+    <div class="row">
+        <div class="col-12 mb-4">
+            <h3 class="fw-bold">También te podría interesar</h3>
+        </div>
+        
+        {% for rel in relacionados %}
+        <div class="col-6 col-md-3 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="p-3">
+                    {% if rel.imagen %}
+                        <img src="{% static 'img/productos/' %}{{ rel.imagen }}" class="card-img-top rounded" alt="{{ rel.nombre }}">
+                    {% else %}
+                        <img src="{% static 'img/no-image.png' %}" class="card-img-top rounded" alt="Sin imagen">
+                    {% endif %}
+                </div>
+                
+                <div class="card-body text-center pt-0">
+                    <h6 class="card-title fw-bold text-truncate">{{ rel.nombre }}</h6>
+                    <p class="text-success fw-bold">${{ rel.precio }}</p>
+                    <a href="{% url 'detalle_producto' rel.id %}" class="btn btn-outline-primary btn-sm w-100">
+                        Ver detalle
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-muted">No hay más productos para mostrar.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

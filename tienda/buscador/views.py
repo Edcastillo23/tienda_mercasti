@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.core.paginator import Paginator
 from catalogo.models import Producto
 from django.db.models import Q
@@ -22,3 +22,12 @@ def buscar_productos(request):
         'query': query
     }
     return render(request, 'buscador/resultados_busqueda.html', context_buscador)
+
+def detalle_producto(request, producto_id):
+    producto = get_object_or_404(Producto, id=producto_id)
+
+    context_detalle = {'producto': producto}
+
+    return render(request, 'catalogo/detalle_producto.html', context_detalle)
+
+

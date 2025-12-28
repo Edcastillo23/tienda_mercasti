@@ -49,8 +49,8 @@
                     </a>
                 </li>
             </ul>
-            <form class="d-flex me-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Search">
+            <form class="d-flex me-3" role="search" action="{% url 'buscar_productos' %}" method="get">
+                <input class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Search" name="q" value="{{ request.GET.q|default:'' }}">
                 <button class="btn btn-outline-light" type="submit">
                     <i class="bi bi-search"></i>
                 </button>
