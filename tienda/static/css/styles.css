@@ -50,33 +50,57 @@ body {
 }
 
 /* --- Botón de WhatsApp Fijo --- */
-.btn-whatsapp {
+.whatsapp-container {
         position: fixed;
-        width: 60px;
-        height: 60px;
         bottom: 20px;
         right: 20px;
+        display: flex;
+        align-items: center;
+        z-index: 1000;
+        text-decoration: none;
+        /* Aplicamos la animación: dura 5s, es infinita y suave */
+        animation: bounce 5s infinite;
+    }
+
+    .whatsapp-label {
+        background-color: #f5f5f5;
+        color: #333;
+        padding: 8px 15px;
+        border-radius: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        margin-right: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        border: 1px solid #ddd;
+    }
+
+    .btn-whatsapp {
+        width: 60px;
+        height: 60px;
         background-color: #25d366;
         color: #FFF;
-        border-radius: 50px;
-        text-align: center;
-        font-size: 35px;
-        box-shadow: 2px 2px 3px #999;
-        z-index: 1000;
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.3s ease;
-        text-decoration: none;
+        font-size: 30px;
+        box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease;
     }
 
-.btn-whatsapp:hover {
-        background-color: #128c7e;
-        color: #FFF;
-        transform: scale(1.1);
-}
+    /* --- LÓGICA DE LA ANIMACIÓN --- */
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+        40% {transform: translateY(-10px);}
+        60% {transform: translateY(-5px);}
+    }
 
-/* --- Efecto de crecimiento en Cards --- */
+    .whatsapp-container:hover {
+        animation: none; /* Se detiene al pasar el mouse para facilitar el clic */
+        transform: scale(1.05);
+    }
+    
+    /* --- Efecto de crecimiento en Cards --- */
 .card-hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
