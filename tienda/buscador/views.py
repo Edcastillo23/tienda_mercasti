@@ -5,24 +5,32 @@ from django.db.models import Q
 
 
 # Create your views here.
+import unicodedata
+from django.db.models import Q
+
 def buscar_productos(request):
-    query = request.GET.get('q', '')
+    query_original = request.GET.get('q', '').strip()
+    
+    # Función local para limpiar la búsqueda del usuario
+    query_limpia = ''.join((c for c in unicodedata.normalize('NFD', query_original) 
+                        if unicodedata.category(c) != 'Mn')).lower()
 
-    productos = Producto.objects.filter(
-        Q(nombre__icontains=query) | Q(descripcion__icontains=query)
-    ).order_by('id')
+    if query_limpia:
+        # Buscamos en el campo especial que ya está limpio en la DB
+        productos = Producto.objects.filter(
+            busqueda_index__icontains=query_limpia
+        ).order_by('id')
+    else:
+        productos = Producto.objects.all().order_by('id')
 
-    paginator = Paginator(productos, 1)  # Mostrar 2 productos por página
-    page_number = request.GET.get('page')
+    # Paginación (puedes dejar la que ya tenías)
+    paginator = Paginator(productos, 2)
+    page_obj = paginator.get_page(request.GET.get('page'))
 
-    page_obj = paginator.get_page(page_number)
-
-    context_buscador = {
+    return render(request, 'buscador/resultados_busqueda.html', {
         'productos': page_obj,
-        'query': query
-    }
-    return render(request, 'buscador/resultados_busqueda.html', context_buscador)
-
+        'query': query_original # Devolvemos la original para que el usuario la vea bien
+    })
 def detalle_producto(request, producto_id):
     producto = get_object_or_404(Producto, id=producto_id)
 
