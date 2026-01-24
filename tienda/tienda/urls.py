@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('home.urls')),  #incluimos las urls de la app home 
     path('catalogo/', include('catalogo.urls')),  #incluimos las urls de la app catalogo
     path('buscador/', include('buscador.urls')),  #incluimos las urls de la app buscador
+    path('usuarios/', include('usuarios.urls')),  #incluimos las urls de la app usuarios
 ]
