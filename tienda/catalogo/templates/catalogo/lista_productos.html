@@ -13,7 +13,11 @@
                 <a href="{% url 'detalle_producto' p.id %}" class="text-decoration-none text-dark">
 
                     <div class="card h-100 shadow p-3 mb-5 bg-white rounded border-0 card-hover">
-                        <img src="{% static 'img/productos/' %}{{ p.imagen }}" class="card-img-top" alt="imagengenerica">
+                        {% if p.imagen %}
+                            <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}" class="card-img-top">
+                        {% else %}
+                            <img src="{% static 'img/no-image.png' %}" class="card-img-top" alt="Sin imagen disponible">
+                        {% endif %}
                         
                         <div class="card-body">
                             <h5 class="card-title">{{ p.nombre }}</h5>

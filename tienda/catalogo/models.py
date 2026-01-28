@@ -22,11 +22,11 @@ class Producto(models.Model):
     descripcion = models.TextField()
     marca = models.CharField(max_length=50, null=True, blank=True)
     sku = models.CharField(max_length=20, unique=True, null=True, blank=True)
-    imagen = models.CharField(max_length=200, default='imagengenerica.jpg')
+    imagen = models.ImageField(upload_to='media/productos/', null=True, blank=True)
     stock = models.IntegerField(default=0)
     oferta = models.BooleanField(default=False)
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, blank=True)
-
+    
     # NUEVO: Campo para búsqueda optimizada sin tildes
     busqueda_index = models.TextField(editable=False, blank=True)
 

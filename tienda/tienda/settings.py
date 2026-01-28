@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +43,12 @@ INSTALLED_APPS = [
     'buscador',
     'usuarios',
 ]
+
+# URL base para acceder a las imágenes en el navegador
+MEDIA_URL = '/media/'
+
+# Ruta física en tu disco duro donde se guardarán los archivos
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
